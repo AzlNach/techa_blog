@@ -1,4 +1,18 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 const BlogList = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const blogPosts = [
     {
       id: 1,
@@ -54,8 +68,72 @@ const BlogList = () => {
   };
 
   return (
-    <section id="blog-list" className="py-20 bg-white-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="blog-list" className="relative bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
+      {/* Dark vignette effect */}
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-black/20 to-black/80"></div>
+      
+      {/* Animated background elements with scroll effect */}
+      <div 
+        className="absolute top-20 left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"
+        style={{
+          transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.05}px)`,
+          transition: 'transform 0.1s ease-out'
+        }}
+      ></div>
+      <div 
+        className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse" 
+        style={{
+          animationDelay: '2s',
+          transform: `translate(${-scrollY * 0.08}px, ${scrollY * 0.03}px)`,
+          transition: 'transform 0.1s ease-out'
+        }}
+      ></div>
+      <div 
+        className="absolute top-1/2 left-1/3 w-64 h-64 bg-indigo-500/5 rounded-full blur-2xl animate-pulse" 
+        style={{
+          animationDelay: '4s',
+          transform: `translate(${scrollY * 0.06}px, ${-scrollY * 0.04}px)`,
+          transition: 'transform 0.1s ease-out'
+        }}
+      ></div>
+      
+      {/* Floating particles with scroll movement */}
+      <div 
+        className="absolute top-32 left-32 w-2 h-2 bg-white/20 rounded-full animate-ping"
+        style={{
+          transform: `translate(${scrollY * 0.15}px, ${scrollY * 0.1}px)`,
+          transition: 'transform 0.1s ease-out'
+        }}
+      ></div>
+      <div 
+        className="absolute top-64 right-64 w-1.5 h-1.5 bg-blue-300/30 rounded-full animate-ping" 
+        style={{
+          animationDelay: '1s',
+          transform: `translate(${-scrollY * 0.12}px, ${scrollY * 0.08}px)`,
+          transition: 'transform 0.1s ease-out'
+        }}
+      ></div>
+      <div 
+        className="absolute bottom-48 left-48 w-1 h-1 bg-purple-300/20 rounded-full animate-ping" 
+        style={{
+          animationDelay: '3s',
+          transform: `translate(${scrollY * 0.09}px, ${-scrollY * 0.06}px)`,
+          transition: 'transform 0.1s ease-out'
+        }}
+      ></div>
+      
+      {/* Grid pattern overlay with subtle parallax */}
+      <div 
+        className="absolute inset-0 opacity-5"
+        style={{
+          transform: `translateY(${scrollY * 0.02}px)`,
+          transition: 'transform 0.1s ease-out'
+        }}
+      >
+        <div className="h-full w-full bg-grid-pattern"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="flex items-end justify-between gap-6 mb-10">
           <div>
             <p className="text-sm font-medium uppercase tracking-wider text-blue-300/90">
