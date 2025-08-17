@@ -1,0 +1,25 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer tech ring -->
+  <circle cx="12" cy="12" r="10" stroke="#60a5fa" stroke-width="2" fill="none" opacity="0.8"/>
+  
+  <!-- Inner core -->
+  <circle cx="12" cy="12" r="3" fill="#60a5fa"/>
+  
+  <!-- Tech nodes/connections -->
+  <circle cx="12" cy="4" r="1.5" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="12" cy="20" r="1.5" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="4" cy="12" r="1.5" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="20" cy="12" r="1.5" fill="#3b82f6" opacity="0.6"/>
+  
+  <!-- Connection lines -->
+  <line x1="12" y1="5.5" x2="12" y2="8.5" stroke="#60a5fa" stroke-width="1" opacity="0.4"/>
+  <line x1="12" y1="15.5" x2="12" y2="18.5" stroke="#60a5fa" stroke-width="1" opacity="0.4"/>
+  <line x1="5.5" y1="12" x2="8.5" y2="12" stroke="#60a5fa" stroke-width="1" opacity="0.4"/>
+  <line x1="15.5" y1="12" x2="18.5" y2="12" stroke="#60a5fa" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Diagonal tech elements -->
+  <circle cx="16.95" cy="7.05" r="1" fill="#1e40af" opacity="0.3"/>
+  <circle cx="7.05" cy="16.95" r="1" fill="#1e40af" opacity="0.3"/>
+  <circle cx="7.05" cy="7.05" r="1" fill="#1e40af" opacity="0.3"/>
+  <circle cx="16.95" cy="16.95" r="1" fill="#1e40af" opacity="0.3"/>
+</svg>

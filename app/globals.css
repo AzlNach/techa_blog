@@ -173,3 +173,87 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #60a5fa;
+  }
+}
+
+/* Typing animation for hero title */
+.typing-line-1 {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #60a5fa;
+  animation: 
+    typing-1 3s steps(26, end),
+    blink-caret 0.75s step-end infinite;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+}
+
+.typing-line-2 {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #60a5fa;
+  opacity: 0;
+  animation: 
+    typing-2 3s steps(32, end),
+    blink-caret 0.75s step-end infinite;
+  animation-delay: 4.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes typing-1 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes typing-2 {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #60a5fa;
+  }
+}
+
+@media (max-width: 768px) {
+  .typing-line-1, .typing-line-2 {
+    white-space: normal;
+    border-right: none;
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 1;
+  }
+  .typing-line-2 {
+    animation-delay: 1.5s;
+  }
+}

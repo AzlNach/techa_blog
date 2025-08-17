@@ -1,19 +1,23 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import ArticleModal from './ArticleModal';
+
+interface Article {
+  id: number;
+  tag: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  readTime: string;
+  category: string;
+}
 
 const BlogList = () => {
-  const [scrollY, setScrollY] = useState(0);
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  const blogPosts = [
+  const blogPosts: Article[] = [
     {
       id: 1,
       tag: "AI",
@@ -68,72 +72,8 @@ const BlogList = () => {
   };
 
   return (
-    <section id="blog-list" className="relative bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
-      {/* Dark vignette effect */}
-      <div className="absolute inset-0 bg-gradient-radial from-transparent via-black/20 to-black/80"></div>
-      
-      {/* Animated background elements with scroll effect */}
-      <div 
-        className="absolute top-20 left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"
-        style={{
-          transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.05}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      ></div>
-      <div 
-        className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse" 
-        style={{
-          animationDelay: '2s',
-          transform: `translate(${-scrollY * 0.08}px, ${scrollY * 0.03}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      ></div>
-      <div 
-        className="absolute top-1/2 left-1/3 w-64 h-64 bg-indigo-500/5 rounded-full blur-2xl animate-pulse" 
-        style={{
-          animationDelay: '4s',
-          transform: `translate(${scrollY * 0.06}px, ${-scrollY * 0.04}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      ></div>
-      
-      {/* Floating particles with scroll movement */}
-      <div 
-        className="absolute top-32 left-32 w-2 h-2 bg-white/20 rounded-full animate-ping"
-        style={{
-          transform: `translate(${scrollY * 0.15}px, ${scrollY * 0.1}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      ></div>
-      <div 
-        className="absolute top-64 right-64 w-1.5 h-1.5 bg-blue-300/30 rounded-full animate-ping" 
-        style={{
-          animationDelay: '1s',
-          transform: `translate(${-scrollY * 0.12}px, ${scrollY * 0.08}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      ></div>
-      <div 
-        className="absolute bottom-48 left-48 w-1 h-1 bg-purple-300/20 rounded-full animate-ping" 
-        style={{
-          animationDelay: '3s',
-          transform: `translate(${scrollY * 0.09}px, ${-scrollY * 0.06}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      ></div>
-      
-      {/* Grid pattern overlay with subtle parallax */}
-      <div 
-        className="absolute inset-0 opacity-5"
-        style={{
-          transform: `translateY(${scrollY * 0.02}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      >
-        <div className="h-full w-full bg-grid-pattern"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+    <section id="blog-list" className="relative overflow-hidden">
+            <div className="w-full px-30 py-24 relative z-10">
         <div className="flex items-end justify-between gap-6 mb-10">
           <div>
             <p className="text-sm font-medium uppercase tracking-wider text-blue-300/90">
@@ -144,7 +84,7 @@ const BlogList = () => {
             </h2>
           </div>
           <a 
-            href="#" 
+            href="/blog" 
             className="inline-flex items-center gap-2 px-8 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Lihat Semua Artikel
@@ -193,21 +133,47 @@ const BlogList = () => {
                   <div className="text-sm text-gray-500">
                     <span className="text-gray-300 font-medium">Kategori:</span> {post.category}
                   </div>
-                  <a 
-                    href="#" 
-                    className="inline-flex items-center gap-1 text-sm text-blue-300 hover:text-blue-200 transition-colors"
+                  <button 
+                    onClick={() => {
+                      setSelectedArticle(post);
+                      setIsModalOpen(true);
+                    }}
+                    className="inline-flex items-center gap-1 text-sm text-blue-300 hover:text-blue-200 transition-colors group"
                   >
                     Baca Selengkapnya
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </a>
+                  </button>
                 </div>
               </div>
             </article>
           ))}
         </div>
+        
+        {/* Lihat Semua Artikel Button */}
+        <div className="text-center mt-12">
+          <a 
+            href="/blog" 
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-semibold rounded-full backdrop-blur-sm hover:bg-white/20 hover:scale-105 transition-all duration-300 group"
+          >
+            Lihat Semua Artikel
+            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
       </div>
+
+      {/* Modal */}
+      <ArticleModal 
+        article={selectedArticle}
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedArticle(null);
+        }}
+      />
     </section>
   );
 };

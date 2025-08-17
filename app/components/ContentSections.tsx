@@ -1,87 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 const ContentSections = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <section className="relative bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
-      {/* Dark vignette effect */}
-      <div className="absolute inset-0 bg-gradient-radial from-transparent via-black/20 to-black/80"></div>
-      
-      {/* Animated background elements with scroll effect */}
-      <div 
-        className="absolute top-20 left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"
-        style={{
-          transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.05}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      ></div>
-      <div 
-        className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse" 
-        style={{
-          animationDelay: '2s',
-          transform: `translate(${-scrollY * 0.08}px, ${scrollY * 0.03}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      ></div>
-      <div 
-        className="absolute top-1/2 left-1/3 w-64 h-64 bg-indigo-500/5 rounded-full blur-2xl animate-pulse" 
-        style={{
-          animationDelay: '4s',
-          transform: `translate(${scrollY * 0.06}px, ${-scrollY * 0.04}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      ></div>
-      
-      {/* Floating particles with scroll movement */}
-      <div 
-        className="absolute top-32 left-32 w-2 h-2 bg-white/20 rounded-full animate-ping"
-        style={{
-          transform: `translate(${scrollY * 0.15}px, ${scrollY * 0.1}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      ></div>
-      <div 
-        className="absolute top-64 right-64 w-1.5 h-1.5 bg-blue-300/30 rounded-full animate-ping" 
-        style={{
-          animationDelay: '1s',
-          transform: `translate(${-scrollY * 0.12}px, ${scrollY * 0.08}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      ></div>
-      <div 
-        className="absolute bottom-48 left-48 w-1 h-1 bg-purple-300/20 rounded-full animate-ping" 
-        style={{
-          animationDelay: '3s',
-          transform: `translate(${scrollY * 0.09}px, ${-scrollY * 0.06}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      ></div>
-      
-      {/* Grid pattern overlay with subtle parallax */}
-      <div 
-        className="absolute inset-0 opacity-5"
-        style={{
-          transform: `translateY(${scrollY * 0.02}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
-      >
-        <div className="h-full w-full bg-grid-pattern"></div>
-      </div>
-
+    <section className="relative overflow-hidden">
       {/* Content 1: AI & watsonx */}
-      <div className="container mx-auto px-6 py-20 relative z-10">
+      <div className="w-full px-30 py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Visual (Kiri) - Enhanced watsonx Ecosystem */}
@@ -113,10 +36,6 @@ const ContentSections = () => {
                       <span className="text-xs text-purple-200 block">AI Models</span>
                     </div>
                   </div>
-                  {/* Enhanced Connection Line */}
-                  <div className="absolute top-16 left-16 w-24 h-1 bg-gradient-to-r from-purple-400/60 via-blue-400/60 to-transparent rounded-full transform rotate-45">
-                    <div className="w-2 h-1 bg-purple-400 rounded-full animate-pulse"></div>
-                  </div>
                 </div>
               </div>
               
@@ -134,15 +53,11 @@ const ContentSections = () => {
                       <span className="text-xs text-green-200 block">Data Platform</span>
                     </div>
                   </div>
-                  {/* Enhanced Connection Line */}
-                  <div className="absolute top-16 right-16 w-24 h-1 bg-gradient-to-l from-green-400/60 via-blue-400/60 to-transparent rounded-full transform -rotate-45">
-                    <div className="w-2 h-1 bg-green-400 rounded-full animate-pulse float-right"></div>
-                  </div>
                 </div>
               </div>
               
-              {/* watsonx.governance - Bottom Center */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 group hover:scale-110 transition-all duration-500">
+              {/* watsonx.governance - Bottom Center - Moved further down */}
+              <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 group hover:scale-110 transition-all duration-500">
                 <div className="relative">
                   <div className="w-36 h-36 bg-gradient-to-br from-orange-500/25 to-orange-700/25 border-2 border-orange-400/40 rounded-2xl flex items-center justify-center backdrop-blur-md shadow-xl hover:shadow-orange-500/25 transition-all duration-300">
                     <div className="text-center space-y-2">
@@ -156,9 +71,6 @@ const ContentSections = () => {
                     </div>
                   </div>
                   {/* Enhanced Connection Line */}
-                  <div className="absolute top-8 left-16 w-1 h-24 bg-gradient-to-t from-orange-400/60 via-blue-400/60 to-transparent rounded-full">
-                    <div className="w-1 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                  </div>
                 </div>
               </div>
               
