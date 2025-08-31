@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 interface Article {
   id: number;
@@ -173,6 +174,174 @@ response = assistant.message(
 print(response['output']['generic'][0]['text'])</code></pre>
           </div>
 
+          <h2 class="text-2xl font-bold text-white mb-4 border-l-4 border-blue-400 pl-4">Model-Model AI IBM Terbaru</h2>
+          <p class="mb-4">IBM terus mengembangkan berbagai model AI canggih untuk berbagai kebutuhan enterprise:</p>
+          
+          <h3 class="text-xl font-semibold text-blue-300 mb-3">1. IBM Granite Foundation Models</h3>
+          <div class="bg-gray-800/50 rounded-lg p-6 mb-6">
+            <p class="mb-4">Familie model foundation open-source yang dioptimalkan untuk enterprise:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div class="bg-gray-900 rounded-lg p-4">
+                <h4 class="text-blue-300 font-semibold mb-2">Granite Code Models</h4>
+                <ul class="text-sm text-gray-300 space-y-1">
+                  <li>• 3B, 8B, 20B, dan 34B parameter variants</li>
+                  <li>• Dilatih pada 116 bahasa pemrograman</li>
+                  <li>• Specialized untuk code generation & debugging</li>
+                  <li>• Context window hingga 8K tokens</li>
+                </ul>
+              </div>
+              <div class="bg-gray-900 rounded-lg p-4">
+                <h4 class="text-blue-300 font-semibold mb-2">Granite Language Models</h4>
+                <ul class="text-sm text-gray-300 space-y-1">
+                  <li>• 3B, 8B, dan 13B parameter options</li>
+                  <li>• Multilingual support (English, Español, etc)</li>
+                  <li>• Fine-tuned untuk business use cases</li>
+                  <li>• Optimized untuk enterprise deployment</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-semibold text-blue-300 mb-3">2. watsonx.ai Platform Models</h3>
+          <div class="bg-gray-900 rounded-lg p-4 mb-6">
+            <pre class="text-sm text-gray-300"><code># Contoh penggunaan Granite models di watsonx.ai
+from ibm_watsonx_ai.foundation_models import Model
+
+# Initialize Granite Code model
+granite_code = Model(
+    model_id="ibm/granite-3b-code-instruct",
+    params={
+        "max_new_tokens": 512,
+        "temperature": 0.1,
+        "top_p": 0.9
+    },
+    credentials=credentials,
+    project_id=project_id
+)
+
+# Generate Python code
+prompt = """
+Create a Python function to validate Indonesian phone numbers:
+- Must start with +62 or 08
+- Total length 10-13 digits after country code
+- Return True/False with error message
+"""
+
+response = granite_code.generate_text(prompt)
+print(response)</code></pre>
+          </div>
+
+          <h3 class="text-xl font-semibold text-blue-300 mb-3">3. Domain-Specific Models</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="bg-blue-900/20 rounded-lg p-4 border border-blue-500/30">
+              <h4 class="text-blue-300 font-semibold mb-2">Granite Guardian</h4>
+              <p class="text-sm text-gray-300">AI safety model untuk content moderation dan bias detection</p>
+            </div>
+            <div class="bg-blue-900/20 rounded-lg p-4 border border-blue-500/30">
+              <h4 class="text-blue-300 font-semibold mb-2">Granite Time Series</h4>
+              <p class="text-sm text-gray-300">Specialized untuk forecasting dan time series analysis</p>
+            </div>
+            <div class="bg-blue-900/20 rounded-lg p-4 border border-blue-500/30">
+              <h4 class="text-blue-300 font-semibold mb-2">Granite Geospatial</h4>
+              <p class="text-sm text-gray-300">Model untuk analisis data geografis dan remote sensing</p>
+            </div>
+            <div class="bg-blue-900/20 rounded-lg p-4 border border-blue-500/30">
+              <h4 class="text-blue-300 font-semibold mb-2">Granite Finance</h4>
+              <p class="text-sm text-gray-300">Optimized untuk financial services dan risk analysis</p>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-bold text-white mb-4 border-l-4 border-blue-400 pl-4">Sejarah Perkembangan AI IBM</h2>
+          <p class="mb-4">IBM telah menjadi pionir dalam pengembangan kecerdasan buatan selama lebih dari 70 tahun:</p>
+          
+          <div class="bg-gray-800/50 rounded-lg p-6 mb-6">
+            <div class="space-y-6">
+              <div class="border-l-4 border-blue-500 pl-6">
+                <h4 class="text-blue-300 font-semibold text-lg">1950s - Era Foundational</h4>
+                <ul class="text-sm text-gray-300 space-y-2 mt-2">
+                  <li><strong>1952:</strong> Arthur Samuel menciptakan program checkers pertama yang bisa belajar</li>
+                  <li><strong>1956:</strong> IBM mendukung Dartmouth Conference yang menciptakan term "Artificial Intelligence"</li>
+                  <li><strong>1959:</strong> Samuel menciptakan istilah "Machine Learning"</li>
+                </ul>
+              </div>
+              
+              <div class="border-l-4 border-green-500 pl-6">
+                <h4 class="text-green-300 font-semibold text-lg">1960s-1980s - Expert Systems Era</h4>
+                <ul class="text-sm text-gray-300 space-y-2 mt-2">
+                  <li><strong>1965:</strong> IBM System/360 menjadi platform pertama untuk AI applications</li>
+                  <li><strong>1970s:</strong> Pengembangan LISP interpreter untuk AI programming</li>
+                  <li><strong>1985:</strong> IBM memulai Expert System tools development</li>
+                </ul>
+              </div>
+              
+              <div class="border-l-4 border-purple-500 pl-6">
+                <h4 class="text-purple-300 font-semibold text-lg">1990s-2000s - Deep Blue Era</h4>
+                <ul class="text-sm text-gray-300 space-y-2 mt-2">
+                  <li><strong>1989:</strong> Proyek Deep Blue dimulai untuk mengalahkan grandmaster catur</li>
+                  <li><strong>1997:</strong> Deep Blue mengalahkan Garry Kasparov dalam match bersejarah</li>
+                  <li><strong>2005:</strong> IBM memulai pengembangan Watson project</li>
+                </ul>
+              </div>
+              
+              <div class="border-l-4 border-yellow-500 pl-6">
+                <h4 class="text-yellow-300 font-semibold text-lg">2010s - Watson Revolution</h4>
+                <ul class="text-sm text-gray-300 space-y-2 mt-2">
+                  <li><strong>2011:</strong> Watson mengalahkan Ken Jennings di Jeopardy!</li>
+                  <li><strong>2013:</strong> Watson for Oncology diluncurkan untuk healthcare</li>
+                  <li><strong>2015:</strong> Watson APIs dibuka untuk developer ecosystem</li>
+                  <li><strong>2018:</strong> Watson Studio untuk enterprise AI development</li>
+                </ul>
+              </div>
+              
+              <div class="border-l-4 border-orange-500 pl-6">
+                <h4 class="text-orange-300 font-semibold text-lg">2020s - watsonx & Foundation Models</h4>
+                <ul class="text-sm text-gray-300 space-y-2 mt-2">
+                  <li><strong>2021:</strong> IBM mengakuisisi Red Hat untuk hybrid cloud AI</li>
+                  <li><strong>2023:</strong> Peluncuran watsonx platform untuk enterprise AI</li>
+                  <li><strong>2024:</strong> Granite foundation models open-sourced</li>
+                  <li><strong>2025:</strong> InstructLab untuk collaborative AI development</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-semibold text-blue-300 mb-3">Timeline Visual AI IBM</h3>
+          <div class="bg-gray-900 rounded-lg p-6 mb-6">
+            <div class="relative">
+              <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-blue-400"></div>
+              <div class="space-y-8 relative">
+                <div class="flex items-center">
+                  <div class="w-4 h-4 bg-blue-500 rounded-full absolute left-2 transform -translate-x-1/2"></div>
+                  <div class="ml-12">
+                    <span class="text-blue-300 font-semibold">1952</span>
+                    <p class="text-gray-300 text-sm">First learning program (Checkers)</p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-4 h-4 bg-green-500 rounded-full absolute left-2 transform -translate-x-1/2"></div>
+                  <div class="ml-12">
+                    <span class="text-green-300 font-semibold">1997</span>
+                    <p class="text-gray-300 text-sm">Deep Blue vs Kasparov</p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-4 h-4 bg-purple-500 rounded-full absolute left-2 transform -translate-x-1/2"></div>
+                  <div class="ml-12">
+                    <span class="text-purple-300 font-semibold">2011</span>
+                    <p class="text-gray-300 text-sm">Watson wins Jeopardy!</p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-4 h-4 bg-orange-500 rounded-full absolute left-2 transform -translate-x-1/2"></div>
+                  <div class="ml-12">
+                    <span class="text-orange-300 font-semibold">2024</span>
+                    <p class="text-gray-300 text-sm">Granite Models Open Source</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <h2 class="text-2xl font-bold text-white mb-4 border-l-4 border-blue-400 pl-4">Pelajaran untuk Industri Lain</h2>
           <p class="mb-4">Implementasi ini memberikan insight berharga:</p>
           <div class="bg-gray-800/50 rounded-lg p-6 mb-6">
@@ -198,23 +367,299 @@ print(response['output']['generic'][0]['text'])</code></pre>
 
           <h2 class="text-2xl font-bold text-white mb-4 border-l-4 border-blue-400 pl-4">Implementasi untuk Perusahaan Indonesia</h2>
           <p class="mb-4">Perusahaan Indonesia dapat mengadopsi strategi serupa dengan fokus pada:</p>
+          
+          <h3 class="text-xl font-semibold text-blue-300 mb-3">Use Cases Spesifik Indonesia</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <div class="bg-blue-900/20 rounded-lg p-4 border border-blue-500/30">
               <h4 class="text-blue-300 font-semibold mb-2">Bahasa Indonesia Support</h4>
-              <p class="text-sm text-gray-300">Training model untuk memahami nuansa bahasa dan budaya lokal</p>
+              <ul class="text-sm text-gray-300 space-y-1">
+                <li>• Fine-tuning Granite untuk Bahasa Indonesia</li>
+                <li>• Understanding slang dan bahasa daerah</li>
+                <li>• Context-aware responses untuk budaya lokal</li>
+                <li>• Integration dengan platform lokal (DANA, GoPay)</li>
+              </ul>
             </div>
             <div class="bg-blue-900/20 rounded-lg p-4 border border-blue-500/30">
-              <h4 class="text-blue-300 font-semibold mb-2">Local Compliance</h4>
-              <p class="text-sm text-gray-300">Mematuhi regulasi perlindungan data personal Indonesia</p>
+              <h4 class="text-blue-300 font-semibold mb-2">Regulasi & Compliance</h4>
+              <ul class="text-sm text-gray-300 space-y-1">
+                <li>• UU PDP (Personal Data Protection) compliance</li>
+                <li>• Bank Indonesia regulations untuk fintech</li>
+                <li>• Kominfo guidelines untuk AI deployment</li>
+                <li>• Data residency requirements</li>
+              </ul>
             </div>
             <div class="bg-blue-900/20 rounded-lg p-4 border border-blue-500/30">
-              <h4 class="text-blue-300 font-semibold mb-2">Multi-Channel Integration</h4>
-              <p class="text-sm text-gray-300">Integrasi dengan platform populer seperti WhatsApp Business</p>
+              <h4 class="text-blue-300 font-semibold mb-2">Industry-Specific Implementation</h4>
+              <ul class="text-sm text-gray-300 space-y-1">
+                <li>• Islamic Banking: Syariah-compliant AI decisions</li>
+                <li>• Agriculture: Palm oil dan rice production optimization</li>
+                <li>• Mining: Predictive maintenance untuk heavy equipment</li>
+                <li>• Tourism: Multilingual travel assistance</li>
+              </ul>
             </div>
             <div class="bg-blue-900/20 rounded-lg p-4 border border-blue-500/30">
-              <h4 class="text-blue-300 font-semibold mb-2">Cost Optimization</h4>
-              <p class="text-sm text-gray-300">Strategi implementasi yang cost-effective untuk market Indonesia</p>
+              <h4 class="text-blue-300 font-semibold mb-2">Infrastructure Considerations</h4>
+              <ul class="text-sm text-gray-300 space-y-1">
+                <li>• Hybrid cloud with local data centers</li>
+                <li>• Edge computing untuk remote areas</li>
+                <li>• Network optimization untuk archipelago topology</li>
+                <li>• Cost-effective scaling strategies</li>
+              </ul>
             </div>
+          </div>
+
+          <h3 class="text-xl font-semibold text-blue-300 mb-3">Contoh Implementasi Real di Indonesia</h3>
+          <div class="bg-gray-900 rounded-lg p-4 mb-6">
+            <pre class="text-sm text-gray-300"><code># Contoh chatbot untuk e-commerce Indonesia
+class IndonesianEcommerceBot:
+    def __init__(self):
+        self.granite_model = GraniteLanguageModel(
+            model_id="granite-13b-chat-v2",
+            language_support=["id", "en", "jv", "su"],  # Indonesian, English, Javanese, Sundanese
+            local_context={
+                "currency": "IDR",
+                "payment_methods": ["DANA", "GoPay", "OVO", "ShopeePay", "Bank Transfer"],
+                "shipping": ["JNE", "J&T", "SiCepat", "Pos Indonesia"],
+                "regions": load_indonesia_regions()
+            }
+        )
+    
+    def handle_customer_query(self, message, user_context):
+        # Deteksi bahasa dan intent
+        detected_language = self.detect_language(message)
+        intent = self.classify_intent(message)
+        
+        # Context-aware response
+        if intent == "payment_inquiry":
+            return self.handle_payment_question(message, user_context, detected_language)
+        elif intent == "shipping_inquiry":
+            return self.handle_shipping_question(message, user_context, detected_language)
+        elif intent == "product_recommendation":
+            return self.generate_product_recommendations(user_context, detected_language)
+        
+        # Fallback to general chat
+        return self.granite_model.generate_response(
+            message=message,
+            context=user_context,
+            language=detected_language,
+            temperature=0.7
+        )
+    
+    def handle_payment_question(self, message, context, language):
+        # Specific Indonesian payment handling
+        if "DANA" in message.upper():
+            return self.format_response(
+                "DANA adalah salah satu metode pembayaran yang tersedia. "
+                "Anda bisa langsung checkout dan pilih DANA di halaman pembayaran. "
+                "Proses pembayaran instant dan aman! 💰",
+                language=language
+            )
+        # ... handle other payment methods</code></pre>
+          </div>
+
+          <h2 class="text-2xl font-bold text-white mb-4 border-l-4 border-blue-400 pl-4">IBM AI Ecosystem di Indonesia</h2>
+          <p class="mb-4">IBM telah membangun ecosystem yang kuat di Indonesia:</p>
+          
+          <div class="bg-gray-800/50 rounded-lg p-6 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="text-blue-300 font-semibold mb-3">Academic Partnerships</h4>
+                <ul class="text-sm text-gray-300 space-y-2">
+                  <li>• Universitas Indonesia (UI) - AI Research Center</li>
+                  <li>• Institut Teknologi Bandung (ITB) - Watson for Education</li>
+                  <li>• Universitas Gadjah Mada (UGM) - Data Science Program</li>
+                  <li>• BINUS University - IBM SkillsBuild program</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-blue-300 font-semibold mb-3">Industry Implementations</h4>
+                <ul class="text-sm text-gray-300 space-y-2">
+                  <li>• Bank Mandiri - AI-powered customer service</li>
+                  <li>• Telkomsel - Network optimization with Watson</li>
+                  <li>• PLN - Predictive maintenance untuk grid management</li>
+                  <li>• Garuda Indonesia - Revenue optimization AI</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-semibold text-blue-300 mb-3">Government AI Initiatives</h3>
+          <div class="bg-gray-900 rounded-lg p-4 mb-6">
+            <pre class="text-sm text-gray-300"><code># Contoh AI untuk Smart City Jakarta
+class SmartCityAI:
+    def __init__(self):
+        self.traffic_ai = WatsonIoT(sensors="traffic_cameras")
+        self.weather_ai = GraniteTimeSeries(data_source="bmkg_api")
+        self.citizen_service = WatsonAssistant(language="id")
+    
+    def optimize_traffic_flow(self):
+        # Real-time traffic analysis
+        traffic_data = self.traffic_ai.get_current_conditions()
+        weather_forecast = self.weather_ai.predict_next_4_hours()
+        
+        # AI-powered traffic light optimization
+        optimization = self.granite_model.generate(
+            prompt=f"""
+            Analyze traffic data: {traffic_data}
+            Weather forecast: {weather_forecast}
+            Current time: {datetime.now().strftime('%H:%M')}
+            
+            Optimize traffic light timing for:
+            - Minimal congestion
+            - Emergency vehicle priority
+            - Peak hour efficiency
+            - Weather-adjusted timing
+            
+            Return JSON with signal timing recommendations.
+            """,
+            model="granite-timeseries-3b"
+        )
+        
+        return optimization
+    
+    def citizen_complaint_analysis(self, complaint_text):
+        # Multi-step analysis
+        category = self.classify_complaint(complaint_text)
+        urgency = self.assess_urgency(complaint_text)
+        location = self.extract_location(complaint_text)
+        
+        # Route to appropriate department
+        routing = {
+            "infrastructure": "Dinas PU",
+            "traffic": "Dishub DKI",
+            "environment": "Dinas LH",
+            "health": "Dinkes DKI"
+        }
+        
+        return {
+            "category": category,
+            "urgency": urgency,
+            "location": location,
+            "assigned_to": routing.get(category, "General Admin"),
+            "estimated_resolution": self.predict_resolution_time(category, urgency)
+        }</code></pre>
+          </div>
+
+          <h2 class="text-2xl font-bold text-white mb-4 border-l-4 border-blue-400 pl-4">Future Roadmap IBM AI di Indonesia</h2>
+          <p class="mb-4">Roadmap pengembangan AI IBM untuk pasar Indonesia:</p>
+          
+          <div class="space-y-6">
+            <div class="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg p-6 border border-blue-500/30">
+              <h4 class="text-blue-300 font-bold text-lg mb-3">2025 - Foundation Year</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h5 class="text-white font-semibold mb-2">Q1-Q2 2025</h5>
+                  <ul class="text-sm text-gray-300 space-y-1">
+                    <li>• Granite Bahasa Indonesia model release</li>
+                    <li>• watsonx.ai Jakarta data center</li>
+                    <li>• Local partner ecosystem expansion</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="text-white font-semibold mb-2">Q3-Q4 2025</h5>
+                  <ul class="text-sm text-gray-300 space-y-1">
+                    <li>• Government sector AI pilot programs</li>
+                    <li>• University research collaborations</li>
+                    <li>• Developer community programs</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-lg p-6 border border-green-500/30">
+              <h4 class="text-green-300 font-bold text-lg mb-3">2026 - Scale & Adoption</h4>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li>• Enterprise-grade Indonesian NLP models</li>
+                <li>• Vertical-specific AI solutions (banking, agriculture, mining)</li>
+                <li>• Edge AI deployment untuk remote areas</li>
+                <li>• AI governance framework untuk Indonesia</li>
+              </ul>
+            </div>
+            
+            <div class="bg-gradient-to-r from-purple-900/30 to-orange-900/30 rounded-lg p-6 border border-purple-500/30">
+              <h4 class="text-purple-300 font-bold text-lg mb-3">2027+ - Innovation Leadership</h4>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li>• Quantum-AI hybrid computing center</li>
+                <li>• Cross-border AI collaboration (ASEAN)</li>
+                <li>• Indigenous AI research & development</li>
+                <li>• AI sovereignty initiatives</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-bold text-white mb-4 border-l-4 border-blue-400 pl-4">Peluang Karir AI di Indonesia</h2>
+          <p class="mb-4">Dengan perkembangan AI IBM di Indonesia, berbagai peluang karir terbuka:</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-gray-800/30 rounded-lg p-4 border border-gray-700">
+              <h4 class="text-blue-300 font-semibold mb-3">Technical Roles</h4>
+              <ul class="text-sm text-gray-300 space-y-1">
+                <li>• AI/ML Engineers</li>
+                <li>• Data Scientists</li>
+                <li>• MLOps Engineers</li>
+                <li>• AI Solution Architects</li>
+                <li>• Prompt Engineers</li>
+              </ul>
+            </div>
+            <div class="bg-gray-800/30 rounded-lg p-4 border border-gray-700">
+              <h4 class="text-blue-300 font-semibold mb-3">Business Roles</h4>
+              <ul class="text-sm text-gray-300 space-y-1">
+                <li>• AI Product Managers</li>
+                <li>• AI Ethics Specialists</li>
+                <li>• AI Strategy Consultants</li>
+                <li>• Digital Transformation Leads</li>
+                <li>• AI Training Specialists</li>
+              </ul>
+            </div>
+            <div class="bg-gray-800/30 rounded-lg p-4 border border-gray-700">
+              <h4 class="text-blue-300 font-semibold mb-3">Emerging Roles</h4>
+              <ul class="text-sm text-gray-300 space-y-1">
+                <li>• AI Governance Officers</li>
+                <li>• Human-AI Interaction Designers</li>
+                <li>• AI Auditors</li>
+                <li>• Conversational AI Designers</li>
+                <li>• AI Policy Analysts</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-semibold text-blue-300 mb-3">Learning Path untuk Developer Indonesia</h3>
+          <div class="bg-gray-900 rounded-lg p-4 mb-6">
+            <pre class="text-sm text-gray-300"><code># Sample learning progression
+learning_path = {
+    "beginner": {
+        "duration": "3-6 months",
+        "focus": [
+            "Python fundamentals",
+            "Basic statistics & mathematics",
+            "Introduction to IBM watsonx",
+            "First AI project with Granite models"
+        ],
+        "certification": "IBM AI Foundations"
+    },
+    
+    "intermediate": {
+        "duration": "6-12 months",
+        "focus": [
+            "Advanced machine learning",
+            "Deep learning with TensorFlow/PyTorch",
+            "watsonx.ai platform mastery",
+            "Indonesian NLP projects"
+        ],
+        "certification": "IBM AI Engineer"
+    },
+    
+    "advanced": {
+        "duration": "12+ months",
+        "focus": [
+            "Large language model fine-tuning",
+            "MLOps dengan Red Hat OpenShift",
+            "AI ethics & governance",
+            "Enterprise AI architecture"
+        ],
+        "certification": "IBM AI Solutions Architect"
+    }
+}</code></pre>
           </div>
         </div>
       `,
@@ -1061,9 +1506,11 @@ public class MainframeAIController {
         <div className="relative bg-gray-900 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden border border-gray-700">
           {/* Header */}
           <div className="relative">
-            <img 
+            <Image 
               src={article.image} 
               alt={article.title}
+              width={1024}
+              height={256}
               className="w-full h-64 object-cover"
             />
             <div className="absolute top-4 right-4">
