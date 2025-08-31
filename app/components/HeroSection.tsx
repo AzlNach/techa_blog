@@ -35,7 +35,7 @@ const HeroSection = () => {
               Jelajahi Artikel Terbaru
             </a>
             <a 
-              href="#content-1" 
+              href="https://www.ibm.com/products/offers-and-discounts" 
               className="px-10 py-4 font-semibold text-white bg-white/10 border border-white/20 rounded-full backdrop-blur-sm hover:bg-white/20 hover:scale-105 transition-all duration-300"
             >
               Mengenal Pilar Teknologi IBM
