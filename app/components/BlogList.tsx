@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import ArticleModal from './ArticleModal';
 
 interface Article {
@@ -72,8 +73,9 @@ const BlogList = () => {
   };
 
   return (
-    <section id="blog-list" className="relative overflow-hidden">
-            <div className="w-full px-30 py-24 relative z-10">
+    <section id="blog-section" className="relative py-20 px-6 lg:px-8 overflow-hidden">
+      {/* Background effects */}
+      <div className="w-full px-30 py-9 relative z-10">
         <div className="flex items-end justify-between gap-6 mb-10">
           <div>
             <p className="text-sm font-medium uppercase tracking-wider text-blue-300/90">
@@ -106,9 +108,11 @@ const BlogList = () => {
               }}
             >
               <div className="relative h-48 overflow-hidden">
-                <img 
+                <Image 
                   src={post.image} 
                   alt={post.title}
+                  width={800}
+                  height={192}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -152,17 +156,7 @@ const BlogList = () => {
         </div>
         
         {/* Lihat Semua Artikel Button */}
-        <div className="text-center mt-12">
-          <a 
-            href="/blog" 
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-semibold rounded-full backdrop-blur-sm hover:bg-white/20 hover:scale-105 transition-all duration-300 group"
-          >
-            Lihat Semua Artikel
-            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
+
       </div>
 
       {/* Modal */}
